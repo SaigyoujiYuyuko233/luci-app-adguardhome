@@ -28,6 +28,7 @@ define Package/luci-app-adguardhome/description
 endef
 
 define Build/Prepare
+chmod 0755 $(PKG_BUILD_DIR)/root/etc/init.d/AdGuardHome
 endef
 
 define Build/Compile
