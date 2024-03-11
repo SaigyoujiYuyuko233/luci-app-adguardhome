@@ -28,7 +28,6 @@ define Package/luci-app-adguardhome/description
 endef
 
 define Build/Prepare
-chmod 0755 $(PKG_BUILD_DIR)/root/etc/init.d/AdGuardHome
 endef
 
 define Build/Compile
@@ -46,6 +45,7 @@ define Package/luci-app-adguardhome/install
 	cp -pR ./root/* $(1)/
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
 	po2lmo ./po/zh-cn/AdGuardHome.po $(1)/usr/lib/lua/luci/i18n/AdGuardHome.zh-cn.lmo
+	chmod +x $(1)/etc/init.d/AdGuardHome
 endef
 
 define Package/luci-app-adguardhome/postinst
